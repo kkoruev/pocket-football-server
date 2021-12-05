@@ -1,0 +1,36 @@
+POST http://localhost:8080/authenticate
+
+Request
+
+{
+    "username": "some-user-name",
+    "password": "test"
+}
+
+Response
+
+{
+    "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrcmlzMSIsImlhdCI6MTYzODczODA5MX0.BZn2l4Dm8ZihoNXnfaprLnn7mmIVFiuQ8sckRPBQwac"
+}
+
+These headers should be always provided with the requests bellow.
+
+Key - Authorizations
+Value - Bearer {some-jwt-token}
+
+GET http://localhost:8080/user-details
+
+Response
+
+{
+    "id": "1d4d14a1-281e-4f65-810c-491e445b6840",
+    "username": "kris1",
+    "email": "kris1@abv.bg",
+    "phone": "0899651572",
+    "age": 15,
+    "position": "GK",
+    "playedMatches": 1,
+    "organizedMatches": 1,
+    "manOfTheMatch": 0,
+    "discipline": "poor"
+}

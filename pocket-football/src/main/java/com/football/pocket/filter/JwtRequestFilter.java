@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
@@ -38,7 +38,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             jwt = authHeader.substring(7);
             userName = JwtUtil.extractSubject(jwt);
         }
-        if (userName != null && SecurityContextHolder.getContext().getAuthentication() != null) {
+        if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
             if (JwtUtil.validateToken(jwt, userDetails)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(

@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.football.pocket.model.dto.HardcodedUserDetails;
+import com.football.pocket.model.dto.user.HardcodedUserDetails;
 
 @Service
 public class HardcodedUserDetailsService implements UserDetailsService {

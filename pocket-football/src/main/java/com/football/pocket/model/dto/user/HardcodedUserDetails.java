@@ -1,4 +1,4 @@
-package com.football.pocket.model.dto;
+package com.football.pocket.model.dto.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
